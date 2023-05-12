@@ -11,7 +11,8 @@
                 <h5 style="color: black;">Gratis untuk 1.000.000 Produk</h5>
             </div>
             <h3 style="color: black;">Silahkan mengisi Data Usaha dan Data Produk yang akan diajukan Sertifikasi Halal berikut ini dan Konsultan Halal SWAKARTA® akan melakukan verifikasi dan validasi dalam waktu 24 jam untuk proses Sertifikasi Halal Self Declare.</h3>
-            <form action="javacript:void(0)" method="post">
+            <form action="{{ url('submit-form') }}" method="post" enctype="multipart/form-data">
+            @csrf
               <div class="row p-4 pb-0">
                 <div class="card p-4">
                   <div class="card-title">
@@ -238,7 +239,8 @@
                 <div class="col">
                   <div class="d-flex justify-content-end pt-5">
                     <button type="button" onclick="this.form.reset();" class="btn btn-outline-danger btn-lg">Reset all</button>
-                    <button type="button" onclick="location.href='/'" class="btn btn-primary btn-lg ms-2">Submit form</button>
+                    <button type="submit" class="btn btn-primary btn-lg ms-2">Submit form</button>
+                    {{-- <button type="button" onclick="location.href='/'" class="btn btn-primary btn-lg ms-2">Submit form</button> --}}
                   </div>
                 </div>
               </div>
