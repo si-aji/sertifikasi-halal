@@ -6,11 +6,10 @@
       <div class="row gx-0">
         <div class="col-lg-12 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="content">
-            <center>
-              <h1 style="color:purple;"><strong>HALAL SELF DECLARE ASSESSMENT</span></strong></h1>
-              <h5 style="color: black;">Gratis untuk 1.000.000 Produk</h5>
-            </center>
-            <br>
+            <div class="text-center pb-2">
+                <h1 style="color:purple;"><strong>HALAL SELF DECLARE ASSESSMENT</span></strong></h1>
+                <h5 style="color: black;">Gratis untuk 1.000.000 Produk</h5>
+            </div>
             <h3 style="color: black;">Silahkan mengisi Data Usaha dan Data Produk yang akan diajukan Sertifikasi Halal berikut ini dan Konsultan Halal SWAKARTA® akan melakukan verifikasi dan validasi dalam waktu 24 jam untuk proses Sertifikasi Halal Self Declare.</h3>
             <form action="javacript:void(0)" method="post">
               <div class="row p-4 pb-0">
@@ -27,26 +26,26 @@
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="text" id="form8Example1" class="form-control" />
-                                <label class="form-label" for="form8Example1">Nama Lengkap<sup class="text-danger">*</sup></label>
+                                <input type="text" name="name" id="name" class="form-control" required>
+                                <label class="form-label" for="name">Nama Lengkap<sup class="text-danger">*</sup></label>
                               </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="text" name="nik" id="" class="form-control">
+                                <input type="text" name="nik" id="nik" class="form-control" required>
                                 <label for="nik" class="form-label">NIK<sup class="text-danger">*</sup></label>
                               </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="email" id="form8Example2" class="form-control" />
-                                <label class="form-label" for="form8Example2">Email<sup class="text-danger">*</sup></label>
+                                <input type="email" name="email" id="email" class="form-control" required>
+                                <label class="form-label" for="email">Email<sup class="text-danger">*</sup></label>
                               </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="text" id="form8Example2" class="form-control" />
-                                <label class="form-label" for="form8Example2">No. Telpon / Whatsapp<sup class="text-danger">*</sup></label>
+                                <input type="text" name="no_telp" id="no_telp" class="form-control" required>
+                                <label class="form-label" for="no_telp">No. Telpon / Whatsapp<sup class="text-danger">*</sup></label>
                               </div>
                             </div>
                           </div>
@@ -70,31 +69,31 @@
                         <div class="row">
                           <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="nama-usaha" id="nama-usaha" class="form-control" />
+                              <input type="text" name="nama-usaha" id="nama-usaha" class="form-control" required>
                               <label class="form-label" for="nama-usaha">Nama Usaha<sup class="text-danger">*</sup></label>
                             </div>
                           </div>
                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="alamat-usaha" id="alamat-usaha" class="form-control">
+                              <input type="text" name="alamat-usaha" id="alamat-usaha" class="form-control" required>
                               <label for="alamat-usaha" class="form-label">Alamat Usaha<sup class="text-danger">*</sup></label>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="jenis-usaha" id="jenis-usaha" class="form-control" />
+                              <input type="text" name="jenis-usaha" id="jenis-usaha" class="form-control" required>
                               <label class="form-label" for="jenis-usaha">Jenis Usaha<sup class="text-danger">*</sup></label>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="nib" id="" class="form-control">
+                              <input type="text" name="nib" id="nib" class="form-control">
                               <label for="nib" class="form-label">NIB <sup class="text-muted">(jika sudah memiliki)</sup></label>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="bahan-cleaning-agent" id="bahan-cleaning-agent" class="form-control">
+                              <input type="text" name="bahan-cleaning-agent" id="bahan-cleaning-agent" class="form-control" required>
                               <label for="bahan-cleaning-agent" class="form-label">Bahan Cleaning Agent<sup class="text-danger">*</sup></label>
                             </div>
                           </div>
@@ -239,7 +238,7 @@
                 <div class="col">
                   <div class="d-flex justify-content-end pt-5">
                     <button type="button" onclick="this.form.reset();" class="btn btn-outline-danger btn-lg">Reset all</button>
-                    <button type="button" onclick="location.href='after-submit.html'" class="btn btn-primary btn-lg ms-2">Submit form</button>
+                    <button type="button" onclick="location.href='/'" class="btn btn-primary btn-lg ms-2">Submit form</button>
                   </div>
                 </div>
               </div>
