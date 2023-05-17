@@ -47,6 +47,9 @@
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     @include('landing.partials.footer')
 
+    {{-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/8186c4a2d4.js" crossorigin="anonymous"></script>
+
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
@@ -60,7 +63,7 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- helper js -->
-    <script src="'{{ asset('assets/js/owl-carousel.js') }}"></script>
+    {{-- <script src="'{{ asset('assets/js/owl-carousel.js') }}"></script> --}}
 
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
