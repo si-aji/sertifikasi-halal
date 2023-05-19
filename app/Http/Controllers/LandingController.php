@@ -44,21 +44,21 @@ class LandingController extends Controller
             'bahan_cleaning_agent' => $request->bahan_cleaning_agent
         ]);
 
-        $amount_products = $request->row_product_length;
 
-        for ($i=1; $i < $amount_products ; $i++) {
+        $produk = $request->produk;
+        $produk_key = array_keys($produk);
 
+        for ($i=0; $i < count($produk_key); $i++) {
             ProdukModel::create([
                 'pelaku_halal_id' => $pelaku_halal->id,
-                'photo' => $request->file('foto_produk_' . $i)->hashName(),
-                'name' => $request->input('nama_produk_' . $i),
-                'packaging_material' => $request->input('bahan_kemasan_' . $i),
-                'material' => $request->input('bahan_produk_' . $i),
-                'process_making' => $request->input('proses_pembuatan_' . $i)
+                'photo' => $produk[$produk_key[$i]]['foto_produk']->hashName(),
+                'name' => $produk[$produk_key[$i]]['nama_produk'],
+                'packaging_material' => $produk[$produk_key[$i]]['bahan_kemasan'],
+                'material' => $produk[$produk_key[$i]]['bahan_produk'],
+                'process_making' => $produk[$produk_key[$i]]['proses_pembuatan']
             ]);
 
-            Storage::disk('digitalocean')->put('sertifikasi-halal/product-img', $request->file('foto_produk_' . $i), 'public');
-
+            Storage::disk('digitalocean')->put('sertifikasi-halal/product-img', $produk[$produk_key[$i]]['foto_produk'], 'public');
         }
 
         return redirect(route('response'))->with([
