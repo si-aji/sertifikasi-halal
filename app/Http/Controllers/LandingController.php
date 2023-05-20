@@ -35,7 +35,7 @@ class LandingController extends Controller
             'no_telp' => $request->no_telp,
         ]);
 
-        UsahaModel::create([
+        $usaha = UsahaModel::create([
             'pelaku_halal_id' => $pelaku_halal->id,
             'name' => $request->nama_usaha,
             'address' => $request->alamat_usaha,
@@ -50,7 +50,7 @@ class LandingController extends Controller
 
         for ($i=0; $i < count($produk_key); $i++) {
             ProdukModel::create([
-                'pelaku_halal_id' => $pelaku_halal->id,
+                'usaha_id' => $usaha->id,
                 'photo' => $produk[$produk_key[$i]]['foto_produk']->hashName(),
                 'name' => $produk[$produk_key[$i]]['nama_produk'],
                 'packaging_material' => $produk[$produk_key[$i]]['bahan_kemasan'],
