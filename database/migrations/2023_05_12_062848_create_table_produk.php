@@ -15,8 +15,8 @@ class CreateTableProduk extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('pelaku_halal_id');
-            $table->foreign('pelaku_halal_id')->references('id')->on('pelaku_halal')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('usaha_id');
+            $table->foreign('usaha_id')->references('id')->on('usaha')->onUpdate('cascade')->onDelete('cascade');
             $table->string('photo');
             $table->string('name');
             $table->string('packaging_material');
