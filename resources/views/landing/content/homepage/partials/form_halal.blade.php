@@ -27,7 +27,7 @@
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="text" name="name" id="name" class="form-control" required>
+                                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
                                 <label class="form-label" for="name">Nama Lengkap<sup class="text-danger">*</sup></label>
                               </div>
                               @error('name')
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="text" name="nik" id="nik" class="form-control" required>
+                                <input type="text" name="nik" id="nik" class="form-control" value="{{ old('nik') }}" required>
                                 <label for="nik" class="form-label">NIK<sup class="text-danger">*</sup></label>
                               </div>
                               @error('nik')
@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="email" name="email" id="email" class="form-control" required>
+                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" required>
                                 <label class="form-label" for="email">Email<sup class="text-danger">*</sup></label>
                               </div>
                               @error('email')
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                               <div class="form-outline">
-                                <input type="text" name="no_telp" id="no_telp" class="form-control" required>
+                                <input type="text" name="no_telp" id="no_telp" class="form-control" value="{{ old('no_telp') }}" required>
                                 <label class="form-label" for="no_telp">No. Telpon / Whatsapp<sup class="text-danger">*</sup></label>
                               </div>
                               @error('no_telp')
@@ -90,7 +90,7 @@
                         <div class="row">
                           <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" required>
+                              <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" value="{{ old('nama_usaha') }}" required>
                               <label class="form-label" for="nama_usaha">Nama Usaha<sup class="text-danger">*</sup></label>
                             </div>
                             @error('nama_usaha')
@@ -101,7 +101,7 @@
                           </div>
                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="alamat_usaha" id="alamat_usaha" class="form-control" required>
+                              <input type="text" name="alamat_usaha" id="alamat_usaha" class="form-control" value="{{ old('alamat_usaha') }}" required>
                               <label for="alamat_usaha" class="form-label">Alamat Usaha<sup class="text-danger">*</sup></label>
                             </div>
                             @error('alamat_usaha')
@@ -112,7 +112,7 @@
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="jenis_usaha" id="jenis_usaha" class="form-control" required>
+                              <input type="text" name="jenis_usaha" id="jenis_usaha" class="form-control" value="{{ old('jenis_usaha') }}" required>
                               <label class="form-label" for="jenis_usaha">Jenis Usaha<sup class="text-danger">*</sup></label>
                             </div>
                             @error('jenis_usaha')
@@ -123,7 +123,7 @@
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="nib" id="nib" class="form-control">
+                              <input type="text" name="nib" id="nib" class="form-control" value="{{ old('nib') }}">
                               <label for="nib" class="form-label">NIB <sup class="text-muted">(jika sudah memiliki)</sup></label>
                             </div>
                             @error('nib')
@@ -134,7 +134,7 @@
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
                             <div class="form-outline">
-                              <input type="text" name="bahan_cleaning_agent" id="bahan_cleaning_agent" class="form-control" required>
+                              <input type="text" name="bahan_cleaning_agent" id="bahan_cleaning_agent" class="form-control" value="{{ old('bahan_cleaning_agent') }}" required>
                               <label for="bahan_cleaning_agent" class="form-label">Bahan Cleaning Agent<sup class="text-danger">*</sup></label>
                             </div>
                             @error('bahan_cleaning_agent')
@@ -173,9 +173,9 @@
                               </div>
                               <div class="badge rounded-pill text-bg-primary ">
                                   <label class="form-label text-primary m-1" for="produk[1][foto_produk]">Upload Foto<sup class="text-danger">*</sup></label>
-                                  <input type="file" class="form-control d-none" name="produk[1][foto_produk]" id="produk[1][foto_produk]" accept="image/*" onchange="loadFile(event, this.parentNode.parentNode.childNodes[3].childNodes[1].id)" required>
+                                  <input type="file" class="form-control d-none" name="produk[1][foto_produk]" id="produk[1][foto_produk]" accept="image/*" onchange="loadFile(event, this.parentNode.parentNode.childNodes[3].childNodes[1].id)" value="{{ old('produk.1.foto_produk') }}" required>
                               </div>
-                              @error("produk[1][foto_produk]")
+                              @error("produk.1.foto_produk")
                                 <span class="text-danger text-sm">
                                     {{ $message }}
                                 </span>
@@ -188,10 +188,10 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                                 <div class="form-floating">
-                                  <input type="text" name="produk[1][nama_produk]" id="produk[1][nama_produk]" class="form-control" required>
+                                  <input type="text" name="produk[1][nama_produk]" id="produk[1][nama_produk]" class="form-control" value="{{ old('produk.1.nama_produk') }}" required>
                                   <label for="produk[1][nama_produk]">Nama Produk<sup class="text-danger">*</sup></label>
                                 </div>
-                                @error("produk[1][nama_produk]")
+                                @error("produk.1.nama_produk")
                                     <span class="text-danger text-sm">
                                         {{ $message }}
                                     </span>
@@ -199,10 +199,10 @@
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4">
                                 <div class="form-floating">
-                                  <input type="text" class="form-control" name="produk[1][bahan_kemasan]" id="produk[1][bahan_kemasan]" required>
+                                  <input type="text" class="form-control" name="produk[1][bahan_kemasan]" id="produk[1][bahan_kemasan]" value="{{ old('produk.1.bahan_kemasan') }}" required>
                                   <label for="produk[1][bahan_kemasan]">Bahan Kemasan<sup class="text-danger">*</sup></label>
                                 </div>
-                                @error("produk[1][bahan_kemasan]")
+                                @error("produk.1.bahan_kemasan")
                                     <span class="text-danger text-sm">
                                         {{ $message }}
                                     </span>
@@ -210,10 +210,10 @@
                               </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4">
                                 <div class="form-floating">
-                                  <textarea class="form-control" name="produk[1][bahan_produk]" id="produk[1][bahan_produk]" rows="2" required></textarea>
+                                  <textarea class="form-control" name="produk[1][bahan_produk]" id="produk[1][bahan_produk]" rows="2" required>{{ old('produk.1.bahan_produk') }}</textarea>
                                   <label for="produk[1][bahan_produk]">Bahan Produk<sup class="text-danger">*</sup></label>
                                 </div>
-                                @error("produk[1][bahan_produk]")
+                                @error("produk.1.bahan_produk")
                                     <span class="text-danger text-sm">
                                         {{ $message }}
                                     </span>
@@ -221,10 +221,10 @@
                               </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4">
                                 <div class="form-floating">
-                                  <textarea class="form-control" name="produk[1][proses_pembuatan]" id="produk[1][proses_pembuatan]" rows="2" required></textarea>
+                                  <textarea class="form-control" name="produk[1][proses_pembuatan]" id="produk[1][proses_pembuatan]" rows="2" required>{{ old('produk.1.proses_pembuatan') }}</textarea>
                                   <label for="produk[1][proses_pembuatan]">Proses Pembuatan<sup class="text-danger">*</sup></label>
                                 </div>
-                                @error("produk[1][proses_pembuatan]")
+                                @error("produk.1.proses_pembuatan")
                                     <span class="text-danger text-sm">
                                         {{ $message }}
                                     </span>
@@ -293,7 +293,7 @@
             new_product.setAttribute('id', 'card-product-' + amount_card_product);
 
             new_product.innerHTML =
-            '<div class="card bg-secondary bg-opacity-25"><div class="card-header">Produk ' + amount_card_product + '<button type="button" class="btn-close" style="float:right;" onclick="deleteProduct(this.parentNode.parentNode.parentNode.id)"></button></div><div class="p-4 pb-2"><div class="card" style="height: 16rem; max-width: 20rem;"><div class="card-body" id="initt"><div class="card-text"><label class="form-label" for="">Foto Produk</label></div><div class="bg-image hover-overlay ripple pb-2" data-mdb-ripple-color="light" id="cc"><img id="output' + amount_card_product + '" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-thumbnail" style="height: 9rem; width: auto;"></div><div class="badge rounded-pill text-bg-primary "><label class="form-label text-primary m-1" for="produk[' + amount_card_product + '][foto_produk]">Upload Foto<sup class="text-danger">*</sup></label><input type="file" class="form-control d-none" name="produk[' + amount_card_product + '][foto_produk]" id="produk[' + amount_card_product + '][foto_produk]" accept="image/*" onchange="loadFile(event, this.parentNode.parentNode.childNodes[1].childNodes[0].id)" required/></div>@error("produk[' + amount_card_product + '][foto_produk]")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div></div></div><div class="card-body"><div class="card-text"><div class="row"><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][nama_produk]" id="produk[' + amount_card_product + '][nama_produk]" class="form-control" required/><label class="form-label" for="produk[' + amount_card_product + '][nama_produk]">Nama Produk<sup class="text-danger">*</sup></label></div>@error("produk[' + amount_card_product + '][nama_produk]")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][bahan_kemasan]" id="produk[' + amount_card_product + '][bahan_kemasan]" class="form-control" required><label for="produk[' + amount_card_product + '][bahan_kemasan]" class="form-label">Bahan Kemasan<sup class="text-danger">*</sup></label></div>@error("produk[' + amount_card_product + '][bahan_kemasan]")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][bahan_produk]" id="produk[' + amount_card_product + '][bahan_produk]" rows="2" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][bahan_produk]">Bahan Produk<sup class="text-danger">*</sup></label></div>@error("produk[' + amount_card_product + '][bahan_produk]")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][proses_pembuatan]" id="produk[' + amount_card_product + '][proses_pembuatan]" rows="2" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][proses_pembuatan]">Proses Pembuatan<sup class="text-danger">*</sup></label></div>@error("produk[' + amount_card_product + '][proses_pembuatan]")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div></div></div></div></div>';
+            '<div class="card bg-secondary bg-opacity-25"><div class="card-header">Produk ' + amount_card_product + '<button type="button" class="btn-close" style="float:right;" onclick="deleteProduct(this.parentNode.parentNode.parentNode.id)"></button></div><div class="p-4 pb-2"><div class="card" style="height: 16rem; max-width: 20rem;"><div class="card-body" id="initt"><div class="card-text"><label class="form-label" for="">Foto Produk</label></div><div class="bg-image hover-overlay ripple pb-2" data-mdb-ripple-color="light" id="cc"><img id="output' + amount_card_product + '" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-thumbnail" style="height: 9rem; width: auto;"></div><div class="badge rounded-pill text-bg-primary "><label class="form-label text-primary m-1" for="produk[' + amount_card_product + '][foto_produk]">Upload Foto<sup class="text-danger">*</sup></label><input type="file" class="form-control d-none" name="produk[' + amount_card_product + '][foto_produk]" id="produk[' + amount_card_product + '][foto_produk]" accept="image/*" onchange="loadFile(event, this.parentNode.parentNode.childNodes[1].childNodes[0].id)" value="{{ old("produk.'+ amount_card_product +'.foto_produk") }}" required/></div>@error("produk.' + amount_card_product + '.foto_produk")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div></div></div><div class="card-body"><div class="card-text"><div class="row"><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][nama_produk]" id="produk[' + amount_card_product + '][nama_produk]" class="form-control" value="{{ old("produk.'+ amount_card_product +'.nama_produk") }}" required/><label class="form-label" for="produk[' + amount_card_product + '][nama_produk]">Nama Produk<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.nama_produk")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][bahan_kemasan]" id="produk[' + amount_card_product + '][bahan_kemasan]" class="form-control" value="{{ old("produk.'+ amount_card_product +'.bahan_kemasan") }}" required><label for="produk[' + amount_card_product + '][bahan_kemasan]" class="form-label">Bahan Kemasan<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.bahan_kemasan")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][bahan_produk]" id="produk[' + amount_card_product + '][bahan_produk]" rows="2" value="{{ old("produk.'+ amount_card_product +'.bahan_produk") }}" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][bahan_produk]">Bahan Produk<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.bahan_produk")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][proses_pembuatan]" id="produk[' + amount_card_product + '][proses_pembuatan]" rows="2" value="{{ old("produk.'+ amount_card_product +'.proses_pembuatan") }}" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][proses_pembuatan]">Proses Pembuatan<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.proses_pembuatan")<span class="text-danger text-sm">{{ $message }}</span>@enderror</div></div></div></div></div>';
 
             row_product.appendChild(new_product);
 

@@ -14,15 +14,6 @@
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('landing.content.homepage.index');
-//     // return view('welcome');
-// });
-
-// Route::get('/test', function () {
-//     return view('test');
-// });
-
 Route::get('/', [LandingController::class, 'index'])->name('index');
 
 Route::post('/submit-form', [LandingController::class, 'store'])->name('submit-form');
