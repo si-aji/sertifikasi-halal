@@ -37,8 +37,6 @@ class LandingController extends Controller
            'produk.*.proses_pembuatan' => ['required'],
         ]);
 
-        // return $form_sertifikasi;
-
         // validation check
         if ($form_sertifikasi) {
 
