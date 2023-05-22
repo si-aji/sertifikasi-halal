@@ -30,24 +30,11 @@ class LandingController extends Controller
            'bahan_cleaning_agent' => ['required'],
 
             // validate produk
-           'produk.*.foto_produk' => [
-                'required' => 'Foto produk wajib diisi',
-                'mimes:jpg,jpeg,png' => 'Format gambar diperbolehkan .jpg .jpeg .png',
-                'max:2048' => 'Foto maksimal berukuran 2 mb'
-            ],
-           'produk.*.nama_produk' => [
-                'required' => 'Nama produk wajib diisi',
-                'max:180' => 'Nama produk maksimal 180 karakter'
-            ],
-           'produk.*.bahan_kemasan' => [
-                'required' => 'Bahan kemasan wajib diisi'
-            ],
-           'produk.*.bahan_produk' => [
-                'required' => 'Bahan produk wajib diisi'
-            ],
-           'produk.*.proses_pembuatan' => [
-                'required' => 'Proses pembuatan wajib diisi'
-            ],
+           'produk.*.foto_produk' => ['required', 'mimes:jpg,jpeg,png', 'max:2048'],
+           'produk.*.nama_produk' => ['required', 'max:180'],
+           'produk.*.bahan_kemasan' => ['required'],
+           'produk.*.bahan_produk' => ['required'],
+           'produk.*.proses_pembuatan' => ['required'],
         ]);
 
         // return $form_sertifikasi;
