@@ -20,13 +20,13 @@ class LandingController extends Controller
         $form_sertifikasi = $this->validate($request, [
             // validate data pelaku & usaha
            'name'=> ['required', 'string', 'max:180'],
-           'email' => ['required', 'email:dns'],
+           'email' => ['required', 'email'],
            'nik' => ['required', 'digits:16'],
            'no_telp' => ['required', 'phone_number', 'min:10', 'max:15'],
            'nama_usaha' => ['required'],
            'alamat_usaha' => ['required'],
            'jenis_usaha' => ['required'],
-           'nib' => ['required'],
+           'nib' => ['required', 'digits:13'],
            'bahan_cleaning_agent' => ['required'],
 
             // validate produk
