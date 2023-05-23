@@ -26,7 +26,7 @@ class LandingController extends Controller
            'nama_usaha' => ['required'],
            'alamat_usaha' => ['required'],
            'jenis_usaha' => ['required'],
-           'nib' => ['required', 'digits:13'],
+           'nib' => ['nullable','digits:13'],
            'bahan_cleaning_agent' => ['required'],
 
             // validate produk
@@ -35,6 +35,31 @@ class LandingController extends Controller
            'produk.*.bahan_kemasan' => ['required'],
            'produk.*.bahan_produk' => ['required'],
            'produk.*.proses_pembuatan' => ['required'],
+        ],[
+            'name.required' => 'Field nama wajib diisi!',
+            'name.string' => 'Field nama wajib format teks!',
+            'name.max' => 'Field nama maksimal 180 karakter!',
+            'email.required' => 'Field email wajib diisi!',
+            'email.email' => 'Field email wajib menggunakan format email!',
+            'nik.required' => 'Field nik wajib diisi!',
+            'nik.digits' => 'Field nik harus 16 karakter!',
+            'no_telp.required' => 'Field no telepon wajib diisi!',
+            'no_telp.min' => 'Field no telepon minimal 10 karakter!',
+            'no_telp.max' => 'Field no telepon maksimal 15 karakter!',
+            'nama_usaha.required' => 'Field nama usaha wajib diisi!',
+            'alamat_usaha.required' => 'Field alamat usaha wajib diisi!',
+            'jenis_usaha.required' => 'Field jenis usaha wajib diisi!',
+            'nib.digits' => 'Field nib jika diisi wajib 13 karakter!',
+            'bahan_cleaing_agent.required' => 'Field bahan cleaning agent wajib diisi!',
+
+            'produk.*.foto_produk.required' => 'Foto produk wajib diisi!',
+            'produk.*.foto_produk.mimes' => 'Foto produk harus berformat .jpg / .jpeg / .png!',
+            'produk.*.foto_produk.max' => 'Maksimal ukuran foto produk adalah 2 mb!',
+            'produk.*.nama_produk.required' => 'Field nama produk wajib diisi!',
+            'produk.*.nama_produk.max' => 'Field nama produk maksimal 180 karakter!',
+            'produk.*.bahan_kemasan.required' => 'Field bahan kemasan wajib diisi!',
+            'produk.*.bahan_produk.required' => 'Field bahan produk wajib diisi!',
+            'produk.*.proses_pembuatan.required' => 'Field proses pembuatan wajib diisi!'
         ]);
 
         // validation check

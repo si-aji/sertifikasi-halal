@@ -158,9 +158,12 @@
                     </h2>
                   </div>
                   <div class="row" id="row_product">
-                    <input type="hidden" name="row_product_length" id="row_product_length">
-                    @if (old('produk'))
-                        @foreach (old('produk') as $key => $item)
+                      @if (old('produk'))
+                      @php
+                          $arr_key_last_produk = array_key_last(old('produk'));
+                      @endphp
+                      <input type="hidden" name="row_product_length" id="row_product_length" value="{{ $arr_key_last_produk }}">
+                      @foreach (old('produk') as $key => $item)
                             <div class="col-lg-6 pb-4">
                                 <div class="card bg-secondary bg-opacity-25">
                                     <div class="card-header">Produk {{ $key }}<sup class="text-danger">*</sup></div>
@@ -239,6 +242,7 @@
                             </div>
                         @endforeach
                     @else
+                    <input type="hidden" name="row_product_length" id="row_product_length" value="1">
                         <div class="col-lg-6 pb-4">
                             <div class="card bg-secondary bg-opacity-25">
                                 <div class="card-header">Produk 1<sup class="text-danger">*</sup></div>
@@ -346,7 +350,7 @@
 
 <script>
 
-    var amount_card_product = 1;
+    var amount_card_product = document.getElementById('row_product_length').value;
     var max_amount_card_product = 10;
 
     var row_product = document.getElementById('row_product');

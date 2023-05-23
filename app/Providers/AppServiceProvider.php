@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             return substr($value, 0, 2) == '08';
         });
         Validator::replacer('phone_number', function($message, $attribute, $rule, $parameters) {
-            return str_replace(':attribute', $attribute, 'Format Nomor Telpon tidak sesuai, mohon gunakan format 08xxxxxxxxxx');
+            return str_replace(':attribute', $attribute, 'Format nomor telepon tidak sesuai, mohon gunakan format 08xxxxxxxxxx');
         });
 
         // Phone number must start with 62xxx format
@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
             return substr($value, 0, 1) == '8';
         });
         Validator::replacer('62phone_number', function($message, $attribute, $rule, $parameters) {
-            return str_replace(':attribute', $attribute, 'Format Nomor Telpon tidak sesuai, mohon gunakan format +628xxxxxxxxxx');
+            return str_replace(':attribute', $attribute, 'Format nomor telepon tidak sesuai, mohon gunakan format +628xxxxxxxxxx');
         });
     }
 }
