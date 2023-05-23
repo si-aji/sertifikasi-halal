@@ -113,7 +113,8 @@ class LandingController extends Controller
         if (session('message')) {
             return view('landing.content.homepage.response_page');
         } else {
-            return view('landing.content.homepage.index');
+            return redirect()->route('index');
+            // return view('landing.content.homepage.index');
         }
 
     }

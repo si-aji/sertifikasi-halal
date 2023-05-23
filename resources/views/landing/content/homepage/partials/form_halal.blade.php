@@ -166,7 +166,12 @@
                       @foreach (old('produk') as $key => $item)
                             <div class="col-lg-6 pb-4">
                                 <div class="card bg-secondary bg-opacity-25">
-                                    <div class="card-header">Produk {{ $key }}<sup class="text-danger">*</sup></div>
+                                    <div class="card-header">
+                                      <span data-key="product-name">Produk {{ $key }}</span><sup class="text-danger">*</sup>
+                                      @if (!$loop->first)
+                                        <button type="button" class="btn-close" style="float:right;" onclick="deleteProduct(this.parentNode.parentNode.parentNode.id)"></button>
+                                      @endif
+                                    </div>
                                     <div class="p-4 pb-2">
                                         <div class="card" style="height: 16rem; max-width: 20rem;">
                                             <div class="card-body">
@@ -245,7 +250,7 @@
                     <input type="hidden" name="row_product_length" id="row_product_length" value="1">
                         <div class="col-lg-6 pb-4">
                             <div class="card bg-secondary bg-opacity-25">
-                                <div class="card-header">Produk 1<sup class="text-danger">*</sup></div>
+                                <div class="card-header"><span data-key="product-name">Produk 1</span><sup class="text-danger">*</sup></div>
                                 <div class="p-4 pb-2">
                                 <div class="card" style="height: 16rem; max-width: 20rem;">
                                     <div class="card-body">
@@ -377,7 +382,7 @@
             new_product.setAttribute('id', 'card-product-' + amount_card_product);
 
             new_product.innerHTML =
-            '<div class="card bg-secondary bg-opacity-25"><div class="card-header">Produk ' + amount_card_product + '<button type="button" class="btn-close" style="float:right;" onclick="deleteProduct(this.parentNode.parentNode.parentNode.id)"></button></div><div class="p-4 pb-2"><div class="card" style="height: 16rem; max-width: 20rem;"><div class="card-body" id="initt"><div class="card-text"><label class="form-label" for="">Foto Produk</label></div><div class="bg-image hover-overlay ripple pb-2" data-mdb-ripple-color="light" id="cc"><img id="output' + amount_card_product + '" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-thumbnail" style="height: 9rem; width: auto;"></div><div class="badge rounded-pill text-bg-primary "><label class="form-label text-primary m-1" for="produk[' + amount_card_product + '][foto_produk]">Upload Foto<sup class="text-danger">*</sup></label><input type="file" class="form-control d-none" name="produk[' + amount_card_product + '][foto_produk]" id="produk[' + amount_card_product + '][foto_produk]" accept="image/*" onchange="loadFile(event, this.parentNode.parentNode.childNodes[1].childNodes[0].id)" value="{{ old("produk.'+ amount_card_product +'.foto_produk") }}" required/></div>@error("produk.' + amount_card_product + '.foto_produk")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div></div></div><div class="card-body"><div class="card-text"><div class="row"><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][nama_produk]" id="produk[' + amount_card_product + '][nama_produk]" class="form-control" value="{{ old("produk.'+ amount_card_product +'.nama_produk") }}" required/><label class="form-label" for="produk[' + amount_card_product + '][nama_produk]">Nama Produk<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.nama_produk")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][bahan_kemasan]" id="produk[' + amount_card_product + '][bahan_kemasan]" class="form-control" value="{{ old("produk.'+ amount_card_product +'.bahan_kemasan") }}" required><label for="produk[' + amount_card_product + '][bahan_kemasan]" class="form-label">Bahan Kemasan<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.bahan_kemasan")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][bahan_produk]" id="produk[' + amount_card_product + '][bahan_produk]" rows="2" value="{{ old("produk.'+ amount_card_product +'.bahan_produk") }}" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][bahan_produk]">Bahan Produk<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.bahan_produk")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][proses_pembuatan]" id="produk[' + amount_card_product + '][proses_pembuatan]" rows="2" value="{{ old("produk.'+ amount_card_product +'.proses_pembuatan") }}" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][proses_pembuatan]">Proses Pembuatan<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.proses_pembuatan")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div></div></div></div></div>';
+            '<div class="card bg-secondary bg-opacity-25"><div class="card-header"><span data-key="product-name">Produk ' + amount_card_product + '</span><sup class="text-danger">*</sup><button type="button" class="btn-close" style="float:right;" onclick="deleteProduct(this.parentNode.parentNode.parentNode.id)"></button></div><div class="p-4 pb-2"><div class="card" style="height: 16rem; max-width: 20rem;"><div class="card-body" id="initt"><div class="card-text"><label class="form-label" for="">Foto Produk</label></div><div class="bg-image hover-overlay ripple pb-2" data-mdb-ripple-color="light" id="cc"><img id="output' + amount_card_product + '" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-thumbnail" style="height: 9rem; width: auto;"></div><div class="badge rounded-pill text-bg-primary "><label class="form-label text-primary m-1" for="produk[' + amount_card_product + '][foto_produk]">Upload Foto<sup class="text-danger">*</sup></label><input type="file" class="form-control d-none" name="produk[' + amount_card_product + '][foto_produk]" id="produk[' + amount_card_product + '][foto_produk]" accept="image/*" onchange="loadFile(event, this.parentNode.parentNode.childNodes[1].childNodes[0].id)" value="{{ old("produk.'+ amount_card_product +'.foto_produk") }}" required/></div>@error("produk.' + amount_card_product + '.foto_produk")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div></div></div><div class="card-body"><div class="card-text"><div class="row"><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][nama_produk]" id="produk[' + amount_card_product + '][nama_produk]" class="form-control" value="{{ old("produk.'+ amount_card_product +'.nama_produk") }}" required/><label class="form-label" for="produk[' + amount_card_product + '][nama_produk]">Nama Produk<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.nama_produk")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><input type="text" name="produk[' + amount_card_product + '][bahan_kemasan]" id="produk[' + amount_card_product + '][bahan_kemasan]" class="form-control" value="{{ old("produk.'+ amount_card_product +'.bahan_kemasan") }}" required><label for="produk[' + amount_card_product + '][bahan_kemasan]" class="form-label">Bahan Kemasan<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.bahan_kemasan")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][bahan_produk]" id="produk[' + amount_card_product + '][bahan_produk]" rows="2" value="{{ old("produk.'+ amount_card_product +'.bahan_produk") }}" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][bahan_produk]">Bahan Produk<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.bahan_produk")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb-4"><div class="form-floating"><textarea class="form-control" name="produk[' + amount_card_product + '][proses_pembuatan]" id="produk[' + amount_card_product + '][proses_pembuatan]" rows="2" value="{{ old("produk.'+ amount_card_product +'.proses_pembuatan") }}" required></textarea><label class="form-label" for="produk[' + amount_card_product + '][proses_pembuatan]">Proses Pembuatan<sup class="text-danger">*</sup></label></div>@error("produk.' + amount_card_product + '.proses_pembuatan")<span class="text-danger text-sm"><small>{{ $message }}</small></span>@enderror</div></div></div></div></div>';
 
             row_product.appendChild(new_product);
 
@@ -386,6 +391,8 @@
             alert('Maksimal penambahan produk adalah ' + max_amount_card_product);
             document.getElementById("add_product_card").disabled = "disabled";
         }
+
+        renameProduct();
     };
 
     // script for delete card product
@@ -398,6 +405,12 @@
         }
 
         document.getElementById('row_product_length').value = row_product.children.length;
+        renameProduct();
     }
 
+    const renameProduct = () => {
+      document.querySelectorAll('[data-key="product-name"]').forEach((el, key) => {
+        el.innerHTML = `Produk ${key + 1}`;
+      });
+    };
 </script>
