@@ -10,6 +10,40 @@ use Illuminate\Support\Facades\Storage;
 
 class LandingController extends Controller
 {
+    private function generateRandomMixCharacter($length = 6)
+    {
+        $numeric = range(0, 9);
+        $alpha = range('a', 'z');
+        $alpha_b = range('A', 'Z');
+    
+        // Shuffle Sets
+        shuffle($numeric);
+        shuffle($alpha);
+        shuffle($alpha_b);
+    
+        // Define how many char
+        $pick = $length;
+        $num_pick = 2;
+        $alpha_pick = rand(1, 2);
+        $alphab_pick = $pick - ($num_pick + $alpha_pick);
+        // Define Start Pick Position
+        $num_pos = rand(0, count($numeric) - $num_pick);
+        $alpha_pos = rand(0, count($alpha) - $alpha_pick);
+        $alphab_pos = rand(0, count($alpha_b) - $alphab_pick);
+      
+        // Pick
+        $numeric = array_slice($numeric, $num_pos, $num_pick);
+        $alpha = array_slice($alpha, $alpha_pos, $alpha_pick);
+        $alpha_b = array_slice($alpha_b, $alphab_pos, $alphab_pick);
+      
+        // Make Set
+        $final_set = array_merge($numeric, $alpha, $alpha_b);
+        shuffle($final_set);
+    
+        $final_set = implode("", $final_set);
+        return $final_set;
+    }
+
     public function index(){
         return view('landing.content.homepage.index');
     }
@@ -85,17 +119,21 @@ class LandingController extends Controller
             $produk = $request->produk;
             $produk_key = array_keys($produk);
 
+            // Generate random character as main directory for related image
+            $directory = $this->generateRandomMixCharacter(10);
             for ($i=0; $i < count($produk_key); $i++) {
-                ProdukModel::create([
+                $product = ProdukModel::create([
                     'usaha_id' => $usaha->id,
-                    'photo' => $produk[$produk_key[$i]]['foto_produk']->hashName(),
+                    'photo' => $directory.'/'.$produk[$produk_key[$i]]['foto_produk']->hashName(),
                     'name' => $produk[$produk_key[$i]]['nama_produk'],
                     'packaging_material' => $produk[$produk_key[$i]]['bahan_kemasan'],
                     'material' => $produk[$produk_key[$i]]['bahan_produk'],
                     'process_making' => $produk[$produk_key[$i]]['proses_pembuatan']
                 ]);
 
-                Storage::disk('digitalocean')->put('sertifikasi-halal/product-img/'. $nama_usaha .'', $produk[$produk_key[$i]]['foto_produk'], 'public');
+                // Append product id to the start of directory name to make it easier when track it down
+                $directory = $product->id.'-'.$directory;
+                Storage::disk('digitalocean')->put('sertifikasi-halal/product-img/'. $directory .'', $produk[$produk_key[$i]]['foto_produk'], 'public');
             }
 
             return redirect(route('response'))->with([
